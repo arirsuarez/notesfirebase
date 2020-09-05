@@ -1,0 +1,30 @@
+.noteForm input[type=text] {
+    padding: 20px;    
+    font-family: 'Roboto Mono', monospace;
+    font-size: medium;
+    text-align: start;
+}
+
+.noteForm button {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 12px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    font-family: 'Roboto Mono', monospace;
+    font-size: medium;
+    margin-left: 12px;
+}
+
+.noteForm button:hover {
+    background-color: #555555;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    font-size: medium;
+  }

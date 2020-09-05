@@ -8,10 +8,17 @@ class Note extends Component {
         this.noteContent = props.noteContent;
     }
 
+    handleRemove(id) {
+
+    }
+
     render() {
         return (
             <div className='Note'>
-                <li>{this.noteId} - {this.noteContent}</li>
+                <span
+                    onClick={() => this.handleRemove(this.noteId)}
+                    >&times;</span>
+                <p>{this.noteId} - {this.noteContent}</p>
             </div>
         )
     }

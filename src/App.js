@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import Note from './Components/Note/Note'
+import Note from './Components/Note/Note';
+import NoteForm from './Components/AddNote/NoteForm';
 
 class App extends Component {
   constructor() {
@@ -11,7 +12,23 @@ class App extends Component {
         {noteId: 2, noteContent: 'Note 2'}
       ]
     };
+    this.addNote = this.addNote.bind(this);
   }
+
+  removeNote(){
+
+  }
+
+  addNote(note) {
+    let {notes} = this.state;
+    notes.push({
+      noteId: notes.length + 1,
+      noteContent: note
+    });
+    this.setState({ notes });
+  }
+
+
   render() {
     return (
       <div className="notesContainer">
@@ -36,7 +53,9 @@ class App extends Component {
         </div>
   
         <div className='notesFooter'>
-  
+            <NoteForm 
+              addNote={this.addNote}
+            />
         </div>
   
       </div>
