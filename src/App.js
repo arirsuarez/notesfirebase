@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Note from './Components/Note/Note'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: [
+        {noteId: 1, noteContent: 'Note 1'},
+        {noteId: 2, noteContent: 'Note 2'}
+      ]
+    };
+  }
+  render() {
+    return (
+      <div className="notesContainer">
+        <div className='notesHeader'>
+          <h1>Notes App</h1>
+        </div>
+  
+        <div className='notesBody'>
+          <ul>
+            {
+              this.state.notes.map(note => {
+                return (
+                  <Note 
+                    noteContent={note.noteContent}
+                    noteId={note.noteId}
+                    key={note.noteId} 
+                  />
+                )
+              })
+            }
+          </ul>
+        </div>
+  
+        <div className='notesFooter'>
+  
+        </div>
+  
+      </div>
+    );
+  }
 }
+
+  
+  
 
 export default App;
