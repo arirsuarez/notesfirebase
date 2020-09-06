@@ -1,34 +1,46 @@
-import React, { Component } from 'react';
+import React, {useState} from 'react';
 import './NoteForm.css';
 
-class NoteForm extends Component {
-    constructor(){
-        super();
-        this.addNote = this.addNote.bind(this);
-    }
+const NoteForm = (props) => {
 
-    addNote () {
-        this.props.addNote(this.textInput.value);
-        this.textInput.value = '';
-        this.textInput.focus();
-    }
+    const initialStateValues = {
+        note: ''
+    };
 
-    render(){
-        return(
-            <div className='noteForm'>
-            <input 
-                ref={input => {this.textInput = input;}}
-                type="text"
-                placeholder='Write your Note'
-            />
-            <button
-                onClick={this.addNote}
-                >
+    const [values, setValues] = useState(initialStateValues);
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setValues({...values, [name]: value})
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();        
+        props.addNote(values);
+        setValues({...initialStateValues});
+        
+    }
+    return (
+        
+        <form onSubmit={handleSubmit}>
+            <div className='notesFooter'>
+            <div className='noteForm'>                
+                <input
+                    name="note"
+                    value={values.note}
+                    onChange={handleInputChange}
+                    onSubmit={handleSubmit}
+                    type="text"
+                    placeholder='Write your Note'
+                />
+                <button onSubmit={handleSubmit}>
                     Add Note
-            </button>
-        </div>
-        )        
-    }
+                </button>
+            </div>
+            </div>
+        </form>
+        
+    )
 }
 
 export default NoteForm;

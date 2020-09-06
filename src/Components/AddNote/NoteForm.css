@@ -28,3 +28,11 @@
     font-family: 'Roboto Mono', monospace;
     font-size: medium;
   }
+
+  .notesFooter {
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    width: 100%;
+  }
+

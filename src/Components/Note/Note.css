@@ -8,3 +8,22 @@
     border-radius: 4px;
 }
 
+.notesHeader, .notesBody, .notesFooter {
+    background-color: rgba(0,0,0,.5);
+    padding: 20px;
+    margin: 0;
+  }
+  
+  .notesHeader {
+    font-family: 'Roboto Mono', monospace;
+    font-size: medium;
+  }
+  
+  .notesBody {
+    font-family: 'Roboto Mono', monospace;
+    font-size: small;
+    margin-top: 15px;
+  }
+  
+  
+
