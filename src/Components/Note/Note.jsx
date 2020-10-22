@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import NoteForm from '../AddNote/NoteForm';
 import {db} from '../../config/config'
 
@@ -7,11 +7,17 @@ import './Note.css';
 const Note = () => {
 
     const addNote = async (noteObject) => {        
-        //debugger;
-        //await db.ref('notes').doc().set(noteObject);
+        
         await db.ref('Notes').push().set(noteObject);
         console.log(noteObject)
     }
+
+    // const getNotes = async () => {
+    //     db.ref('Notes').
+    // } 
+
+    // useEffect(() => {
+    // }, []);
 
     return (
         <>
